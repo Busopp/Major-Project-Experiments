@@ -36,6 +36,8 @@
     var imageElement = document.getElementById("whole");
     var audioElement = document.getElementById("audioplayer");
 
+    updateGif();
+
     //check the time every minute maybe
     setInterval(function() {
         objDate = new Date();
@@ -43,55 +45,77 @@
         minutes = objDate.getMinutes();
         console.log(hours);
         console.log(minutes);
+        updateGif();
     }, 60 * 1000);
     
-    //if its before 9am do nothing
-    if (hours <9) {
 
-    }
-    //if its between 9 and 11 show gif 1 in the canvas
-    else if (hours >= 9 && hours < 11) {
 
-    }
-    // if 11-12 gif 2
-    else if (hours >= 11 && hours < 12) {
 
-    }
-    //if  etc
-    else if (hours >= 12 && hours < 13) {
-        imageElement.src = "rain.gif";
-    }
-    else if (hours >= 13 && hours < 14) {
-        imageElement.src = "rain.gif";
-    }
-    else if (hours >= 14 && hours < 15) {
-        imageElement.src = "rain.gif";
-    }
-    else if (hours >= 15 && hours < 16) {
-        imageElement.src = "rain.gif";
-    }
-    else if (hours >= 16 && hours < 17) {
-        imageElement.src = "rain.gif";
-        
-    }
-    else if (hours >= 17 && hours < 18) {
-        imageElement.src = "waves.gif";
-    }
-    else if (hours >= 18 && hours < 19) {
-        imageElement.src = "sunset.gif";
-    }
-    else if (hours >= 19 && hours < 20) {
-        imageElement.src = "tropical.gif";
-        audioElement.play();
-    }
-    else if (hours >= 20 && hours < 21) {
-        imageElement.src = "waterfall.gif";
-    }
-    else if (hours >= 21 && hours < 22) {
-        imageElement.src = "stars.gif";
-    }
-    else if (hours >= 22 && hours < 23) {
-        imageElement.src = "stars.gif";
+
+
+    function updateGif() {
+        //This is so inelegant but the beauty of this experiment is that it doesnt have to be elegant
+        console.log(hours);
+
+        if (hours <9) {
+            setMood("sleep");
+        }
+        else if (hours >= 9 && hours < 11) {
+            setMood("work");
+        }
+        else if (hours >= 11 && hours < 12) {
+            setMood("work");
+        }
+        else if (hours >= 12 && hours < 13) {
+            setMood("relax");
+        }
+        else if (hours >= 13 && hours < 14) {
+            setMood("work");
+        }
+        else if (hours >= 14 && hours < 15) {
+            setMood("work");
+        }
+        else if (hours >= 15 && hours < 16) {
+            setMood("work");   
+        }
+        else if (hours >= 16 && hours < 17) {
+            setMood("sleep");            
+        }
+        else if (hours >= 17 && hours < 18) {
+            setMood("work");
+        }
+        else if (hours >= 18 && hours < 19) {
+            setMood("play");
+        }
+        else if (hours >= 19 && hours < 20) {
+            console.log("its 7pm");
+            setMood("relax");
+           
+        }
+        else if (hours >= 20 && hours < 21) {
+            setMood("work");
+        }
+        else if (hours >= 21 && hours < 22) {
+            setMood("relax");
+        }
+        else if (hours >= 22) {
+            setMood("sleep");
+        }
     }
 
+
+    function setMood(mood) {
+        if (mood == "work") {
+            imageElement.src = "rain.gif";
+            audioElement.play();
+        } else if (mood == "play") {
+            imageElement.src = "tropical.gif";
+        } else if (mood == "relax") {
+            imageElement.src = "waterfall.gif";
+            console.log("its time to relax");
+            audioElement.play();
+        } else if (mood == "sleep") {
+            imageElement.src = "stars.gif";
+        }
+    }
 </script>
