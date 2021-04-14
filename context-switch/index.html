@@ -4,12 +4,17 @@
 </head>
     
 <body>
-    <canvas id="whole"></canvas>
+    <img id="whole" src="sunset.gif">
+    
+    <audio id="audioplayer" autoplay>
+        <source src="rain.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 </body>
 
 
 <style>
-    canvas {
+    #whole {
         width: 100%;
         height: 100%;
         margin: 0px;
@@ -24,14 +29,69 @@
 
 </style>
 <script>
+    var objDate = new Date();
+    var hours = objDate.getHours();
+    var minutes = objDate.getMinutes();
+
+    var imageElement = document.getElementById("whole");
+    var audioElement = document.getElementById("audioplayer");
 
     //check the time every minute maybe
-
+    setInterval(function() {
+        objDate = new Date();
+        hours = objDate.getHours();
+        minutes = objDate.getMinutes();
+        console.log(hours);
+        console.log(minutes);
+    }, 60 * 1000);
+    
     //if its before 9am do nothing
+    if (hours <9) {
 
+    }
     //if its between 9 and 11 show gif 1 in the canvas
+    else if (hours >= 9 && hours < 11) {
 
+    }
     // if 11-12 gif 2
+    else if (hours >= 11 && hours < 12) {
 
-    //if 
+    }
+    //if  etc
+    else if (hours >= 12 && hours < 13) {
+        imageElement.src = "rain.gif";
+    }
+    else if (hours >= 13 && hours < 14) {
+        imageElement.src = "rain.gif";
+    }
+    else if (hours >= 14 && hours < 15) {
+        imageElement.src = "rain.gif";
+    }
+    else if (hours >= 15 && hours < 16) {
+        imageElement.src = "rain.gif";
+    }
+    else if (hours >= 16 && hours < 17) {
+        imageElement.src = "rain.gif";
+        
+    }
+    else if (hours >= 17 && hours < 18) {
+        imageElement.src = "waves.gif";
+    }
+    else if (hours >= 18 && hours < 19) {
+        imageElement.src = "sunset.gif";
+    }
+    else if (hours >= 19 && hours < 20) {
+        imageElement.src = "tropical.gif";
+        audioElement.play();
+    }
+    else if (hours >= 20 && hours < 21) {
+        imageElement.src = "waterfall.gif";
+    }
+    else if (hours >= 21 && hours < 22) {
+        imageElement.src = "stars.gif";
+    }
+    else if (hours >= 22 && hours < 23) {
+        imageElement.src = "stars.gif";
+    }
+
 </script>
