@@ -39,14 +39,7 @@
     updateGif();
 
     //check the time every minute maybe
-    setInterval(function() {
-        objDate = new Date();
-        hours = objDate.getHours();
-        minutes = objDate.getMinutes();
-        console.log(hours);
-        console.log(minutes);
-        updateGif();
-    }, 60 * 1000);
+    
     
 
 
@@ -118,4 +111,15 @@
             imageElement.src = "stars.gif";
         }
     }
+
+
+    setInterval(function() {
+        objDate = new Date();
+        hours = objDate.getHours();
+        minutes = objDate.getMinutes();
+        console.log(hours);
+        console.log(minutes);
+        updateGif();
+    }, 60 * 1000);
+
 </script>
