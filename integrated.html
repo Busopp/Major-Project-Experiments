@@ -1,0 +1,74 @@
+<head>
+    <link rel="stylesheet" href="base.css">    
+</head>
+<body>
+    <!--
+<div id="left" class="column">
+    <button class="button" value="capture" onclick="takePicture()">Capture Response</button>
+    <button class="button" value="question" onclick="addQuestion()">Get asked a question</button>
+</div>
+-->
+
+<div>
+    <canvas id="canvas" class="d-none"></canvas>
+    <video id="player" autoplay playsinline ></video>
+    
+
+</div>
+
+</body>
+
+
+
+<script> 
+    
+    const canvas = document.getElementById('canvas');
+    const player = document.getElementById('player');
+    const context = canvas.getContext('2d');
+
+    const constraints = {
+        video: true,
+    };
+
+  navigator.mediaDevices.getUserMedia(constraints)
+    .then((stream) => {
+      player.srcObject = stream;
+    });
+
+
+    document.addEventListener('keyup', (e) => {
+        console.log(e.code);
+        if (e.code === "KeyA") {
+            takePicture();
+        } 
+        else if (e.code === "KeyB") {
+            console.log("flipped");
+            
+        }
+        else if (e.code === "ArrowDown") {
+            addQuestion();
+        }
+    });
+
+
+    //get access to the webcam and take a pic
+    function takePicture() {
+        console.log("oogabooggaa");
+        context.drawImage(player, 0, 0, canvas.width, canvas.height);
+    }
+
+
+    // Draw a question on the canvas
+    function addQuestion() {
+        context.translate(canvas.width / 2, canvas.height / 2);
+        console.log("wagga wagga");
+        context.font = "60px Arial";
+        context.fillText("Whats the Deal with aeroplane food", -20, 0);
+    }
+
+    takePicture();
+
+
+
+
+</script>
