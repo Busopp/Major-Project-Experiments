@@ -1,4 +1,4 @@
-.column {
+u.column {
     height: 100%;
 }
 
@@ -24,11 +24,18 @@
     height: 100%;
     margin: 0px;
     padding: 0px;
+    /* -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+    filter: FlipH; */
 }
 
 #player {
     width: 1080px;
     height: 920px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 
 

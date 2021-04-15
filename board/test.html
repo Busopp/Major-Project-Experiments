@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display Webcam Stream</title>
+ 
+<style>
+#videoElement {
+	width: 100%;
+	height: 100%;
+}
+#overlay {
+    position: absolute;
+    object-fit: fill;
+    opacity: 20%;
+    width: 100%; 
+    height: 100%;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+}
+</style>
+</head>
+ 
+<body>
+<div id="container">
+	<video autoplay="true" id="videoElement">
+	
+	</video>
+
+  <video id="overlay" autoplay muted loop onclick="switchImg()">
+    <source src="vid/VHS TRACKING GLITCH.mp4" type="video/mp4">
+    <source src="vid/VHS Blue Screen Intro [HD].mp4" type="video/mp4">    
+    <source src="vid/Overlay Old Film 2.mp4" type="video/mp4">  
+  </video>
+
+</div>
+<script>
+var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+
+var imgID = true;
+function switchImg() {
+    document.getElementById(imgID).style.display = "none";
+    document.getElementById(!imgID).style.display = "block";
+    imgID = !imgID;
+  }
+</script>
+</body>
+</html>

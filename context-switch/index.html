@@ -6,8 +6,12 @@
 <body>
     <img id="whole" src="sunset.gif">
     
-    <audio id="audioplayer" autoplay>
+    <audio id="audioplayerrain" autoplay>
         <source src="rain.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="audioplayerwork" autoplay>
+        <source src="classical.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 </body>
@@ -34,81 +38,85 @@
     var minutes = objDate.getMinutes();
 
     var imageElement = document.getElementById("whole");
-    var audioElement = document.getElementById("audioplayer");
+    var audioElementrain = document.getElementById("audioplayerrain");
+    var audioElementwork = document.getElementById("audioplayerwork");
 
     updateGif();
 
     //check the time every minute maybe
     
-    
-
-
-
 
 
     function updateGif() {
         //This is so inelegant but the beauty of this experiment is that it doesnt have to be elegant
         console.log(hours);
 
-        if (hours <9) {
-            setMood("sleep");
-        }
-        else if (hours >= 9 && hours < 11) {
-            setMood("work");
-        }
-        else if (hours >= 11 && hours < 12) {
-            setMood("work");
-        }
-        else if (hours >= 12 && hours < 13) {
-            setMood("relax");
-        }
-        else if (hours >= 13 && hours < 14) {
-            setMood("work");
-        }
-        else if (hours >= 14 && hours < 15) {
-            setMood("work");
-        }
-        else if (hours >= 15 && hours < 16) {
-            setMood("work");   
-        }
-        else if (hours >= 16 && hours < 17) {
-            setMood("sleep");            
-        }
-        else if (hours >= 17 && hours < 18) {
-            setMood("work");
-        }
-        else if (hours >= 18 && hours < 19) {
-            setMood("play");
-        }
-        else if (hours >= 19 && hours < 20) {
-            console.log("its 7pm");
-            setMood("relax");
-           
-        }
-        else if (hours >= 20 && hours < 21) {
-            setMood("work");
-        }
-        else if (hours >= 21 && hours < 22) {
-            setMood("relax");
-        }
-        else if (hours >= 22) {
-            setMood("sleep");
+
+        switch (hours) {
+            case 8:
+                setMood("rain");
+                break;
+            case 9:
+                setMood("rain");
+                break;
+            case 10:
+                setMood("work");
+                break;
+            case 11:
+                setMood("work");
+                break;
+            case 12:
+                setMood("play");
+                break;
+            case 13:
+                setMood("relax");
+                break;
+            case 14:
+                setMood("work");
+                break;
+            case 15:
+                setMood("work");
+                break;
+            case 16:
+                setMood("relax");
+                break;
+            case 17:
+                setMood("play");
+                break;
+            case 18:
+                setMood("relax");
+                break;
+            case 19:
+                setMood("relax");
+                break;
+            case 20:
+                setMood("stars");
+                break;
+            default:
+                setMood("stars");
         }
     }
 
-
     function setMood(mood) {
-        if (mood == "work") {
-            imageElement.src = "rain.gif";
-            audioElement.play();
-        } else if (mood == "play") {
-            imageElement.src = "tropical.gif";
-        } else if (mood == "relax") {
-            imageElement.src = "waterfall.gif";
-            console.log("its time to relax");
-            audioElement.play();
-        } else if (mood == "sleep") {
-            imageElement.src = "stars.gif";
+        switch(mood) {
+            case "work":
+                imageElement.src = "work.gif";
+                audioElementwork.play();
+                break;
+            case "play":
+                imageElement.src = "tropical.gif";
+                break;
+            case "relax":
+                imageElement.src = "waterfall.gif";
+                console.log("its time to relax");
+                audioElementrain.play();
+                break;
+            case "stars":
+                imageElement.src = "stars.gif";
+                break;
+            case "rain":
+                imageElement.src = "rain.gif";
+                break;
         }
     }
 
