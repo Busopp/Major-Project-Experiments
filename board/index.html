@@ -1,0 +1,85 @@
+<head>
+    <link rel="stylesheet" href="base.css">    
+</head>
+<body>
+    <!--
+<div id="left" class="column">
+    <button class="button" value="capture" onclick="takePicture()">Capture Response</button>
+    <button class="button" value="question" onclick="addQuestion()">Get asked a question</button>
+</div>
+-->
+
+<div>
+    <canvas id="canvas" class="d-none"></canvas>
+    <video id="webcam" autoplay playsinline ></video>
+    
+
+</div>
+
+</body>
+
+
+
+
+<script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+<script> 
+    
+    const webcamElement = document.getElementById('webcam');
+    const canvasElement = document.getElementById('canvas');
+    const snapSoundElement = document.getElementById('snapSound');
+    const webcam = new Webcam(webcamElement, 'environment', canvasElement, snapSoundElement);
+    
+    //navigator.mediaDevices.enumerateDevices()
+      //  .then(getVideoInputs);
+
+
+    webcam.start()
+    .then(result =>{
+        console.log("webcam started");
+    })
+    .catch(err => {
+        console.log(err);
+    });
+    
+    
+
+
+    document.addEventListener('keyup', (e) => {
+        console.log(e.code);
+        if (e.code === "KeyA") {
+            takePicture();
+        } 
+        else if (e.code === "KeyB") {
+            webcam.flip();
+            webcam.start();
+            console.log("flipped");
+            
+        }
+        else if (e.code === "ArrowDown") {
+            addQuestion();
+        }
+    });
+
+    function takePicture() {
+        //get access to the webcam and take a pic
+        console.log("oogabooggaa");
+        let picture = webcam.snap();
+        // /document.querySelector('#download-photo').href = picture;
+       
+    }
+
+    function addQuestion() {
+        var context = canvasElement.getContext("2d");
+        
+        context.translate(canvas.width / 2, canvas.height / 2);
+        console.log("wagga wagga");
+        context.font = "60px Arial";
+        context.fillText("Whats the Deal with aeroplane food", -20, 0);
+    }
+
+    takePicture();
+
+
+
+
+</script>
