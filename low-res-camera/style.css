@@ -1,0 +1,22 @@
+#p {
+    background-color: aliceblue;
+}
+
+body {
+    height: 100%;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#cameraSide {
+    width: 50%;
+    float: left;
+    background-color: red;
+}
+#noteSide {
+    width: 50%;
+    float: right;
+    background-color: blue;
+}
