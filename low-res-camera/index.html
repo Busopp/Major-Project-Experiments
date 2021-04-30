@@ -5,9 +5,19 @@
 <body>
     <h1></h1>
     <div id="cameraside">
+        <video autoplay="true" id="videoElement">
+	
+        </video>
+
+        <canvas>
+
+        </canvas>
 
     </div>
     <div id="noteSide">
-        
+        <button onclick="takePicture()" id=takePicture> Take Picture </button>
+        <button onclick="saveMemory()" id="saveMemory">Save Memory</button>
     </div>
 </body>
+
+<script src="funcs.js"></script>
