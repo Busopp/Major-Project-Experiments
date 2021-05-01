@@ -32,8 +32,8 @@ u.column {
 }
 
 #player {
-    width: 1080px;
-    height: 920px;
+    width: 10px;
+    height: 17px;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
 }
