@@ -23,7 +23,7 @@ canvas {
 #saveable {
     width: 1280px;
     height: 720px;
-    display: hidden;
+    display: none;
 }
 
 #cameraSide {
@@ -67,5 +67,5 @@ canvas {
 }
 
 #testspace {
-    display: hidden;
+    display: none;
 }
