@@ -95,7 +95,7 @@ function frankenstein() {
 
   //save to local
   var image = saveCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
-  //window.location.href=image;
+  window.location.href=image;
 
 }
 
