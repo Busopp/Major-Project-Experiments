@@ -15,7 +15,7 @@ var fHeight = 99;
 var memText = "";
 
 if (navigator.mediaDevices.getUserMedia) {
-  navigator.mediaDevices.getUserMedia({ video: true})
+  navigator.mediaDevices.getUserMedia({ video: true, facingMode: 'environment'})
     .then(function (stream) {
       video.srcObject = stream;
     })
