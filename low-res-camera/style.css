@@ -23,6 +23,7 @@ canvas {
 #saveable {
     width: 1280px;
     height: 720px;
+    display: hidden;
 }
 
 #cameraSide {
