@@ -1,5 +1,7 @@
 <head>
     <title>Clear Recollection</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">  
 </head>
 <body>
@@ -9,15 +11,24 @@
 	
         </video>
 
-        <canvas>
+        <canvas id="lowResPic">
 
         </canvas>
 
     </div>
     <div id="noteSide">
+        <p id="testspace"> peanut obfuscate</p>
+        <textarea id="notes"></textarea>
         <button onclick="takePicture()" id=takePicture> Take Picture </button>
         <button onclick="saveMemory()" id="saveMemory">Save Memory</button>
     </div>
+
+
+    <br><br><br><br><br><br><br>
+    <canvas id="saveable"></canvas>
 </body>
 
 <script src="funcs.js"></script>
+
+
+<!-- A Man, wrapped in steam. Miasma flows from heart to fingertips, from skin to mechanical switches. -->

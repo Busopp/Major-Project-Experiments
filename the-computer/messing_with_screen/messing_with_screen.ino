@@ -110,8 +110,8 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define LOGO_WIDTH    128
 
 
-String messages[] = {"Made you look teehee", "You should take a break"};
-//String messages[] = {"Made you look teehee", "You should take a break", "I wonder whats happening on twitter right now", "doing work is for chumps", "Netflix feeling pretty good right about now...", "Hi, how are you", "This is a random message"};
+//String messages[] = {"Made you look teehee", "You should take a break"};
+char *messages[] = {"Made you look teehee", "You should take a break", "I wonder whats happening on twitter right now", "doing work is for chumps", "Netflix feeling pretty good right about now...", "Hi, how are you", "This is a random message"};
 int previousTime = 0;
 int interval = 10000;
 int notiCount = 0;
