@@ -61,6 +61,7 @@ function saveMemory() {
   // Disable and empty text area
   textArea.disabled = true;
   textArea.value = "";
+
   // Save the collection as a png somehow
   frankenstein();
 
@@ -71,14 +72,15 @@ function saveMemory() {
 // add the pixelCanvas on one side of the bottom canvas, and the textArea value 
 // on the other in the weird format, and then export is as dataURL
 function frankenstein() {
-  console.log("defs running the smoosh together function")
-  //take current canvas and slap on the left hand side
-  saveCanvas.width=1280;//horizontal resolution (?) - increase for better looking text
-  saveCanvas.height=720;//vertical resolution (?) - increase for better looking text
-  //saveCanvas.style.width=width;//actual width of canvas
-  //saveCanvas.style.height=height;
+  // Reset the canvas
   saveableContext = saveCanvas.getContext("2d");
-  saveableContext.drawImage(pixelCanvas, 0, 0, saveCanvas.width/2, saveCanvas.height/2);
+  saveCanvas.width=1280;//horizontal resolution (?) - increase for better looking text
+  saveCanvas.height=720;
+  saveableContext.clearRect(0, 0, saveCanvas.width, saveCanvas.height)
+
+  console.log("defs running the smoosh together function")
+  //take current canvas and slap on the left hand side  
+  saveableContext.drawImage(pixelCanvas, 0, 0, saveCanvas.width/2, saveCanvas.height);
   saveableContext.font = saveableContext.font.replace(/\d+px/, "22px");
 
   // parse memText and make it into commaed /n'd form
