@@ -81,11 +81,11 @@ function frankenstein() {
   console.log("defs running the smoosh together function")
   //take current canvas and slap on the left hand side  
   saveableContext.drawImage(pixelCanvas, 0, 0, saveCanvas.width/2, saveCanvas.height);
-  saveableContext.font = saveableContext.font.replace(/\d+px/, "22px");
+  saveableContext.font = saveableContext.font.replace(/\d+px/, "44px");
 
   // parse memText and make it into commaed /n'd form
-  formattedText = addItemEvery(memText, ", ", 30);
-  formattedText = memText.match(/.{1,60}/g)
+  formattedText = addItemEvery(memText, ", ", 22);
+  formattedText = formattedText.match(/.{1,24}/g)
   document.getElementById("testspace").innerHTML = formattedText;
   console.log(formattedText);
 
@@ -104,7 +104,7 @@ function frankenstein() {
 
 //Printe array onto canvas
 function printArrayCanvas(item, index) {
-  saveableContext.fillText(item, 640, (40*(index+1)));
+  saveableContext.fillText(item, 680, (70*(index+1)));
 }
 
 // turns "asdyeguio3qwnoqnwwwq" into "asda'item'ysagfq'item'iusfds" or whatever
