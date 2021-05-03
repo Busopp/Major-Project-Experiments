@@ -1,3 +1,39 @@
+body {
+    padding: 5%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Shippori Mincho', serif;
+}
+
+button {
+    float: right;
+    margin-right: 10%;
+    width: 15%;
+    height: 10%;
+    font-size: 1.2em;
+}
+
+#titleCard {
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+#chatLog {
+    margin-left: 5%;
+}
+
+#textConvo {
+    margin: 5%;
+    margin-left: 20%;
+    width: 70%;
+    height: 30%;
+    padding: 2%;
+}
+
 #dialup {
     display: none;
+    margin: 20%;
+    width: 60%;
 }
