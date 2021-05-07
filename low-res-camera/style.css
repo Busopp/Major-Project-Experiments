@@ -49,6 +49,11 @@ button {
     height: 100%;
 }
 
+#subForm {
+
+    text-align: center;
+}
+
 #container {
 	margin: 0px auto;
 	width: 100%;

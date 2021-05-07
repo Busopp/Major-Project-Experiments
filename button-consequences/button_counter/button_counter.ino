@@ -26,14 +26,14 @@ void loop(){
   {
     buttonPressesG++;                  // increment buttonPresses count
     digitalWrite(ledPin, LOW);
-    delay(450);                       // debounce switch
+    delay(30000);                       // debounce switch
     digitalWrite(ledPin, HIGH);
   } 
   if (digitalRead(switchPinB) == LOW)  // check if button was pressed
   {
     buttonPressesB++;                  // increment buttonPresses count
     digitalWrite(ledPin, LOW);
-    delay(450);                       // debounce switch
+    delay(30000);                       // debounce switch
     digitalWrite(ledPin, HIGH);
   }
   

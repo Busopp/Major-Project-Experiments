@@ -84,7 +84,7 @@ function frankenstein() {
   saveableContext.font = saveableContext.font.replace(/\d+px/, "44px");
 
   // parse memText and make it into commaed /n'd form
-  formattedText = addItemEvery(memText, ", ", 22);
+  //formattedText = addItemEvery(memText, ", ", 22);
   formattedText = formattedText.match(/.{1,24}/g)
   document.getElementById("testspace").innerHTML = formattedText;
   console.log(formattedText);
