@@ -18,12 +18,12 @@ function startConvo() {
     convoBits.style.display = "none";
     dialupGif.style.display = "block";
     waitingMessage.innerHTML = "Your message is being sent...";
-    setTimeout(arriveShortly, 1000 * 30);
+    setTimeout(arriveShortly, 1000 * 60 * 30);
 }
 
 function arriveShortly() {
     waitingMessage.innerHTML = "A Message should arrive soon...";
-    setTimeout(reenable, 1000 * 30);
+    setTimeout(reenable, 1000 * 60 * 30);
 }
 
 function reenable(){
