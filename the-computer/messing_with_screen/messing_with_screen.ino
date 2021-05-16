@@ -110,8 +110,17 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define LOGO_WIDTH    128
 
 
-String messages[] = {"Made you look teehee", "You should take a break"};
-//String messages[] = {"Made you look teehee", "You should take a break", "I wonder whats happening on twitter right now", "doing work is for chumps", "Netflix feeling pretty good right about now...", "Hi, how are you", "This is a random message"};
+//String messages[] = {"Made you look teehee", "You should take a break"};
+char messages[][30] = {
+    "Made you look teehee", 
+    "You should take a break", 
+    "I wonder whats happening", 
+    "doing work is for chumps", 
+    "Netflix feeling pretty ", 
+    "Hi, how are you", 
+    "This is a random message", 
+    "Hey how are you???", 
+    "ERR MSG 291: GO BACK TO WORK"};
 int previousTime = 0;
 int interval = 10000;
 int notiCount = 0;
@@ -222,8 +231,8 @@ void displayRandomMessage() {
     display.setTextColor(SSD1306_WHITE);        // Draw white text
     display.setCursor(0,0);             // Start at top-left corner
     //TODO pick one at random out of the array and display that
-    String displayer = messages[random(2)];
-    display.println(displayer);
+    //String displayer = (String)messages[random(9)];
+    display.println(messages[random(9)]);
     display.display();
     notiCount--;
     delay(1000);
