@@ -1,0 +1,53 @@
+table, th, td {
+    /* border: 1px solid black; */
+}
+
+
+table {
+    table-layout: fixed ;
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    text-align:center;
+    font-size: 1.2em;
+}
+  
+td {
+    width: auto;
+    height: auto;
+}
+
+body {
+    background-color: azure;
+    height: 90%;
+    font-family: 'Merriweather', serif;
+}
+
+
+.aqua {
+    background-color: aqua;
+}
+
+.CadetBlue {
+    background-color: CadetBlue;
+}
+
+.DarkSalmon {
+    background-color: DarkSalmon;
+}
+
+.Lavender {
+    background-color: Lavender;
+}
+
+.MistyRose {
+    background-color: MistyRose;
+}
+
+.Sienna {
+    background-color: Sienna;
+}
+
+.Snow {
+    background-color: Snow;
+}
