@@ -1,5 +1,5 @@
-var boardLength = 12;
-var boardWidth = 12;
+var boardLength = 24;
+var boardWidth = 24;
 
 var boardState = init2DArray();
 var temp = init2DArray();
@@ -56,14 +56,14 @@ function mainLoop() {
     // set styles for each individual word i guess
 
 
-    //apply boardstate to the html page i guess
+    //apply boardstate to the html page, and add colors
     createHTMLTable(boardState);
 
-    //go thorugh and add unique colors for each unique word, maybe only have to do the first 10?
+    //take a picture w/ webcam, process image, and then inject word based on result
 
 
     //call it all agian
-    setTimeout(mainLoop, 2000);
+    setTimeout(mainLoop, 500);
 
 }
 
@@ -83,12 +83,12 @@ function createHTMLTable(tableData) {
         var cell = document.createElement('td');
 
         //if its not included in the includedWords, add it in, change included count.
-        
         if (!usedWords.includes(cellData)) {
             usedWords.push(cellData);
         }
         //add the words indexOf() color from the colors object as a class
         cell.setAttribute( "class", uniqueColors[ usedWords.indexOf(cellData) ] );
+
 
         cell.appendChild(document.createTextNode(cellData));
         row.appendChild(cell);
@@ -98,8 +98,8 @@ function createHTMLTable(tableData) {
     });
   
     table.appendChild(tableBody);
-    document.body.innerHTML = "";
-    document.body.appendChild(table);
+    document.getElementById("tablestuff").innerHTML = "";
+    document.getElementById("tablestuff").appendChild(table);
     usedWords = ["."];
     return usedWords;
 }

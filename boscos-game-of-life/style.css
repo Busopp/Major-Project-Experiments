@@ -1,6 +1,15 @@
-table, th, td {
-    /* border: 1px solid black; */
+* {
+    margin: 0px;
+    padding: 0px;
 }
+
+body {
+    overflow: hidden;
+}
+
+/* table, th, td {
+    border: 1px solid black;
+} */
 
 
 table {
@@ -9,7 +18,7 @@ table {
     height: 100%;
     border-collapse: collapse;
     text-align:center;
-    font-size: 1.2em;
+    font-size: 1em;
 }
   
 td {
@@ -17,9 +26,9 @@ td {
     height: auto;
 }
 
-body {
+#tablestuff {
     background-color: azure;
-    height: 90%;
+    height: 100%;
     font-family: 'Merriweather', serif;
 }
 
