@@ -7,6 +7,7 @@ var global = this;
 
 //lets just initialize with some random words
 
+
 var tickSpeed = 500;
 
 var injectedWord = [0,0, ""];
@@ -26,6 +27,7 @@ var usedWords = ["."];
 
 var surroundingWords = [];
 
+readWriting();
 
 createHTMLTable(boardState);
 
@@ -231,4 +233,44 @@ function mode(array)
     }
     //console.log(maxEl);
     return maxEl;
+}
+
+
+function readWriting() {
+
+    console.log("buttmunch");
+
+    // Imports the Google Cloud client library
+    const vision = require('@google-cloud/vision');
+
+    // Creates a client
+    const client = new vision.ImageAnnotatorClient();
+
+    /**
+     * TODO(developer): Uncomment the following line before running the sample.
+     */
+    const fileName = 'F:/Projects/git/Major-Project-Experiments/boscos-game-of-life';
+
+    // Read a local image as a text document
+    const [result] = await client.documentTextDetection(fileName);
+    const fullTextAnnotation = result.fullTextAnnotation;
+    console.log(`Full text: ${fullTextAnnotation.text}`);
+    fullTextAnnotation.pages.forEach(page => {
+    page.blocks.forEach(block => {
+        console.log(`Block confidence: ${block.confidence}`);
+        block.paragraphs.forEach(paragraph => {
+        console.log(`Paragraph confidence: ${paragraph.confidence}`);
+        paragraph.words.forEach(word => {
+            const wordText = word.symbols.map(s => s.text).join('');
+            console.log(`Word text: ${wordText}`);
+            console.log(`Word confidence: ${word.confidence}`);
+            word.symbols.forEach(symbol => {
+            console.log(`Symbol text: ${symbol.text}`);
+            console.log(`Symbol confidence: ${symbol.confidence}`);
+            });
+        });
+        });
+    });
+    });
+
 }
