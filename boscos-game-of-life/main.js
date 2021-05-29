@@ -7,6 +7,8 @@ var global = this;
 
 //lets just initialize with some random words
 
+var tickSpeed = 500;
+
 var injectedWord = [0,0, ""];
 
 boardState[1][1] = "love";
@@ -27,7 +29,7 @@ var surroundingWords = [];
 
 createHTMLTable(boardState);
 
-setTimeout(mainLoop, 2000);
+setTimeout(mainLoop, tickSpeed);
 
 
 
@@ -63,7 +65,7 @@ function mainLoop() {
 
 
     //call it all agian
-    setTimeout(mainLoop, 500);
+    setTimeout(mainLoop, tickSpeed);
 
 }
 

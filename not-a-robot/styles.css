@@ -1,0 +1,22 @@
+body {
+    height: 100%;
+}
+
+#robotButton {
+    height: 20%;
+    width: 40%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+
+    border-style: outset;
+}
+
+#roboCheck {
+    width: 50%;
+    height:50%;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+}
