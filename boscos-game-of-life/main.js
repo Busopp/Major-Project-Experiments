@@ -40,8 +40,10 @@ function mainLoop() {
     //reconcile temp issues
 
 
+    console.log(injectedWord);
     // Apply the injected word after all other calculations
     if (injectedWord[2] != "") {
+        //Inject it as a 2x2 square
         temp[injectedWord[1]][injectedWord[2]] = injectedWord[0];
         temp[injectedWord[1]+1][injectedWord[2]] = injectedWord[0];
         temp[injectedWord[1]][injectedWord[2]+1] = injectedWord[0];
@@ -110,6 +112,10 @@ function createHTMLTable(tableData) {
 
 
 function injectWord(i, j, word){
+    console.log(i);
+    console.log(j);
+    console.log(word);
+
     injectedWord = [word, i, j];
 }
 

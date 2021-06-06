@@ -32,6 +32,10 @@ td {
     font-family: 'Merriweather', serif;
 }
 
+#canvas {
+    height: 450px;
+    width: 600px;
+}
 
 .aqua {
     background-color: aqua;
