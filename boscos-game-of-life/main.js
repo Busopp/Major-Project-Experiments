@@ -10,7 +10,7 @@ var global = this;
 
 var tickSpeed = 500;
 
-var injectedWord = [0,0, ""];
+var injectedWord = ["", 0, 0];
 
 boardState[1][1] = "love";
 boardState[1][2] = "love";
@@ -39,17 +39,28 @@ function mainLoop() {
     checkSurroundings();
     //reconcile temp issues
 
-
-    console.log(injectedWord);
     // Apply the injected word after all other calculations
     if (injectedWord[2] != "") {
-        //Inject it as a 2x2 square
-        temp[injectedWord[1]][injectedWord[2]] = injectedWord[0];
-        temp[injectedWord[1]+1][injectedWord[2]] = injectedWord[0];
-        temp[injectedWord[1]][injectedWord[2]+1] = injectedWord[0];
-        temp[injectedWord[1]+1][injectedWord[2]+1] = injectedWord[0];
+        console.log("injecting");
+        //call the patterns down the bottom randomly
+        var num = Math.floor(Math.random()*4);
+        switch (num) {
+            case 0:
+                makeToad(injectedWord[1], injectedWord[2], injectedWord[0]); console.log("toad");
+                break;
+            case 1:
+                makeBeacon(injectedWord[1], injectedWord[2], injectedWord[0]); console.log("beacon");
+                break;
+            case 2:
+                makeBlinker(injectedWord[1], injectedWord[2], injectedWord[0]); console.log("blinker");
+                break;
+            case 3:
+                makeSquare(injectedWord[1], injectedWord[2], injectedWord[0]); console.log("square");
+                break;
+        }
         injectedWord = [0,0, ""];
     }
+    
     //apply temp to board
     boardState = temp;
     temp = init2DArray();
@@ -158,17 +169,31 @@ function checkSurroundings(){
                     if (boardState[i+1][j-1] != ".") {surroundingWords.push(boardState[i+1][j-1]);activeCells++;}
                 }
 
-                // Game of Life rules
-                if (activeCells == 1){
+                ///////////////////////////
+                //    Game of Life rules
+                ///////////////////////////
+                if (activeCells < 1){
                     // Do nothing
                     //temp[i][j] = mode(surroundingWords);
-                }else if (activeCells == 2 || activeCells == 3 == 2 || activeCells == 4){
+                }else if (activeCells == 2 || activeCells == 3 ){
                     // Make alive
                     temp[i][j] = mode(surroundingWords);
                 }else{
                     // Make dead
                     temp[i][j] = ".";
                 }
+                // if (activeCells <3  && boardState[i][j] != ".") { // if less than 3 and alive
+                //     temp[i][j] = "."; //kill self
+                // } else if (activeCells >5  && boardState[i][j] != ".") { // if more than 3 and alive
+                //     temp[i][j] = "."; //kill self
+                // } else if ((activeCells == 3 || activeCells == 4) && boardState[i][j] == ".")  { // if dead and has 3 neighbours
+                //     // become neighbour
+                //     temp[i][j] = mode(surroundingWords);
+                // } else if (activeCells == 4  && boardState[i][j] != "."){
+                
+                // } else {
+                //     temp[i][j] = boardState[i][j];
+                // }
                 
                 surroundingWords = [];
                 
@@ -239,3 +264,39 @@ function mode(array)
     return maxEl;
 }
 
+
+
+
+//call these when applying injected word
+function makeToad(i, j, word) {
+    temp[i][j] = word;
+    temp[i][j+1] = word;
+    temp[i][j+2] = word;
+    temp[i+1][j-1] = word;
+    temp[i+1][j] = word;
+    temp[i+1][j+1] = word;
+    
+}
+
+function makeBeacon(i, j, word) {
+    temp[i][j] = word;
+    temp[i][j+1] = word;
+    temp[i+1][j] = word;
+
+    temp[i+2][j+3] = word;
+    temp[i+3][j+2] = word;
+    temp[i+3][j+3] = word;
+}
+
+function makeBlinker(i, j, word) {
+    temp[i][j+1] = word;
+    temp[i][j-1] = word;
+    temp[i][j] = word;
+}
+
+function makeSquare(i, j, word) {
+    temp[i][j] = word;
+    temp[i][j+1] = word;
+    temp[i+1][j] = word;
+    temp[i+1][j+1] = word;
+}

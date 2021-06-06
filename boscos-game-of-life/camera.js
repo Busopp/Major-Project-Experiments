@@ -72,7 +72,6 @@ function crossCheck() {
     // Figure out the ideal based on the answers (big case statement?) and return it.
     //if 
     var value = "";
-    console.log(answerSet);
     switch (answerSet) {
         case "0000":
             value = "Fakeness";

@@ -31,3 +31,16 @@
 
 <script src="camera.js"></script>
 <script src="main.js"></script>
+
+
+<script> 
+    document.onkeydown = function(e){
+    e = e || window.event;
+    var key = e.which || e.keyCode;
+    if(key===32){
+        console.log("Space Pressed");
+        cameraOperations();
+    }
+}
+
+</script>
