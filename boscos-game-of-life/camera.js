@@ -74,52 +74,52 @@ function crossCheck() {
     var value = "";
     switch (answerSet) {
         case "0000":
-            value = "Fakeness";
-            break;
-        case "0001":
-            value = "Trouble";
-            break;
-        case "0010":
-            value = "Feedback";
-            break;
-        case "0011":
-            value = "Control";
-            break;
-        case "0100":
             value = "Apathy";
             break;
+        case "0001":
+            value = "Freedom";
+            break;
+        case "0010":
+            value = "Isolation";
+            break;
+        case "0011":
+            value = "Personal";
+            break;
+        case "0100":
+            value = "Creativity";
+            break;
         case "0101":
-            value = "Turbulence";
+            value = "Expression";
             break;
         case "0110":
-            value = "Desperation";
+            value = "Community";
             break;
         case "0111":
-            value = "Nuance";
+            value = "Personal";
             break;
         case "1000":
-            value = "Joy";
+            value = "Privacy";
             break;
         case "1001":
-            value = "Jazziness";
+            value = "Respect";
             break;
         case "1010":
             value = "Pride";
             break;
         case "1011":
-            value = "Clemency";
+            value = "Conformity";
             break;
         case "1100":
-            value = "Freedom";
+            value = "Jazziness";
             break;
         case "1101":
-            value = "Frinkiness";
+            value = "Exploration";
             break;
         case "1110":
-            value = "Community";
+            value = "Nuance";
             break;
         case "1111":
-            value = "Help";
+            value = "Online";
             break;
     }   
     console.log(value);
